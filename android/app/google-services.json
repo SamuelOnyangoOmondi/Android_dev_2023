@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "270380758196",
+    "firebase_url": "https://fleet-tractor-394510-default-rtdb.firebaseio.com",
+    "project_id": "fleet-tractor-394510",
+    "storage_bucket": "fleet-tractor-394510.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270380758196:android:f4124b7b5a08ded31493e1",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlnoGZLphCK0ec9z_-0re2eAeIyRLVDw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270380758196:android:3ab23900f3bbeb5f1493e1",
+        "android_client_info": {
+          "package_name": "com.example.mob_dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlnoGZLphCK0ec9z_-0re2eAeIyRLVDw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
