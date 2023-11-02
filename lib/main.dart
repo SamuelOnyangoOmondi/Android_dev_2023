@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DataEntryPage(collectionName: 'details', documentId: 'Qhg6iNXEdEUbMViWGqwO'),
+      home: LoginPage(),
       routes: {
-        // '/login': (context) => LoginPage(),
+        '/login': (context) => LoginPage(),
         '/data_entry': (context) => DataEntryPage(collectionName: 'details', documentId: 'Qhg6iNXEdEUbMViWGqwO'),
       },
     );

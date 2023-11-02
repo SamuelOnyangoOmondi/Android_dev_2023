@@ -13,7 +13,19 @@ class LoginPage extends StatelessWidget {
   final passwordController = TextEditingController();
 
   // sign user in method
-  void signUserIn() {}
+  void signUserIn(BuildContext context) {
+    //Add authentication logic here
+
+    //Navigate to the DataEntry Page
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => DataEntryPage(collectionName: 'details', documentId: 'Qhg6iNXEdEUbMViWGqwO'
+          ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +94,9 @@ class LoginPage extends StatelessWidget {
 
               // sign in button
               MyButton(
-                onTap: signUserIn,
+                onTap: (){
+                  signUserIn(context);
+                },
               ),
 
               const SizedBox(height: 50),
@@ -151,22 +165,6 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Navigate to the DataEntryPage for testing
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DataEntryPage(
-                          collectionName: 'details', // Specify the collection name
-                          documentId: 'Qhg6iNXEdEUbMViWGqwO', // Specify the document ID
-                        ),
-                      ),
-                    );
-                  },
-                  child: Text('Test Data Entry Page'),
-                ),
             ],
           ),
         ),
