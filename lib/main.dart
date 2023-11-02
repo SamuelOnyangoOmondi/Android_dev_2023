@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'login/login.dart';
+import 'data_entry/data_entry_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-Future<void> main() async {
+
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp( const MyApp());
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,9 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
+      home: DataEntryPage(collectionName: 'details', documentId: 'Qhg6iNXEdEUbMViWGqwO'),
       routes: {
-        '/login': (context) => LoginPage(),
+        // '/login': (context) => LoginPage(),
+        '/data_entry': (context) => DataEntryPage(collectionName: 'details', documentId: 'Qhg6iNXEdEUbMViWGqwO'),
       },
     );
   }

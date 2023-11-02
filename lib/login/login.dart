@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/components/my_button.dart';
 import 'package:flutter_app/components/my_textfield.dart';
 import 'package:flutter_app/components/squaretile.dart';
+import 'package:flutter_app/data_entry/data_entry_page.dart';
+
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -148,7 +150,23 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the DataEntryPage for testing
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DataEntryPage(
+                          collectionName: 'details', // Specify the collection name
+                          documentId: 'Qhg6iNXEdEUbMViWGqwO', // Specify the document ID
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text('Test Data Entry Page'),
+                ),
             ],
           ),
         ),
