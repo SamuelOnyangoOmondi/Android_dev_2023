@@ -17,6 +17,6 @@ Follow the following tutorial to demonstrate our implementation of firebase and 
 * Deleting documents in a collection
 * Displaying data inside a cloud firestore
 
-[![Click to Watch Video](https://drive.google.com/file/d/16nf8Efxms5yX3cbGkJlqBmgZSmcFEGQ2/view?usp=sharing)](https://drive.google.com/file/d/1KhbNDpb2yLi6H5L47E5dQtgqoynIWuAq/view?usp=sharing)
+[![Click to Watch Video](https://pixabay.com/vectors/database-storage-data-storage-152091/)](https://drive.google.com/file/d/1KhbNDpb2yLi6H5L47E5dQtgqoynIWuAq/view?usp=sharing)
 
 
