@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/components/my_button.dart';
 import 'package:flutter_app/components/my_textfield.dart';
 import 'package:flutter_app/components/squaretile.dart';
-import 'package:flutter_app/data_entry/data_entry_page.dart';
+import 'package:flutter_app/data_entry.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => DataEntryPage(collectionName: 'details', documentId: 'Qhg6iNXEdEUbMViWGqwO'
+          builder: (context) => DataEntryPage(collectionName: 'details'
           ),
       ),
     );

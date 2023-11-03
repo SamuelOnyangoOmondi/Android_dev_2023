@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login/login.dart';
-import 'data_entry/data_entry_page.dart';
+import 'data_entry.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
       routes: {
         '/login': (context) => LoginPage(),
-        '/data_entry': (context) => DataEntryPage(collectionName: 'details', documentId: 'Qhg6iNXEdEUbMViWGqwO'),
+        '/data_entry': (context) => DataEntryPage(collectionName: 'details'),
       },
     );
   }
