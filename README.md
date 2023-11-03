@@ -1,20 +1,22 @@
-<<<<<<< HEAD
-# Android_dev_2023
-=======
+
 # flutter_app
 
-A new Flutter project.
+A new Flutter Application that we are developing as part of our mobile development learning classes. 
 
-## Getting Started
+Concepts inculcated herein include
+* Prototyping with Adalo
+* Flatter UI components and Layouts
+* Flutter Navigation and Routing
+* Connection to Firebase (dependencies + Plugins)
+* CRUD ops Firebase
 
-This project is a starting point for a Flutter application.
+# Firebase CRUD operations demo 
 
-A few resources to get you started if this is your first Flutter project:
+Follow the following tutorial to demonstrate our implementation of firebase and a few Crud Operations; 
+* Adding documents to a collection
+* Deleting documents in a collection
+* Displaying data inside a cloud firestore
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[![Click to Watch Video](https://drive.google.com/file/d/16nf8Efxms5yX3cbGkJlqBmgZSmcFEGQ2/view?usp=sharing)](https://drive.google.com/file/d/1KhbNDpb2yLi6H5L47E5dQtgqoynIWuAq/view?usp=sharing)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
->>>>>>> ba9b50e (firebase_auth debug)
+
