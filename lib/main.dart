@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/auth.dart';
 import 'login/login.dart';
 import 'data_entry.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,11 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-      routes: {
-        '/login': (context) => LoginPage(),
-        '/data_entry': (context) => DataEntryPage(collectionName: 'details'),
-      },
+      home: AuthPage(),
+      // routes: {
+      //   '/login': (context) => LoginPage(),
+      //   '/data_entry': (context) => DataEntryPage(collectionName: 'details'),
+      // },
     );
   }
 }

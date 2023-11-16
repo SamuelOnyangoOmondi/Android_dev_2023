@@ -3,28 +3,33 @@ import 'package:flutter_app/components/my_button.dart';
 import 'package:flutter_app/components/my_textfield.dart';
 import 'package:flutter_app/components/squaretile.dart';
 import 'package:flutter_app/data_entry.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   // text editing controllers
-  final usernameController = TextEditingController();
+  final EmailController = TextEditingController();
   final passwordController = TextEditingController();
 
   // sign user in method
-  void signUserIn(BuildContext context) {
+  void signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: EmailController.text,
+        password: passwordController.text
+    );
     //Add authentication logic here
 
     //Navigate to the DataEntry Page
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => DataEntryPage(collectionName: 'details'
-          ),
-      ),
-    );
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //       builder: (context) => DataEntryPage(collectionName: 'details'
+    //       ),
+    //   ),
+    // );
   }
 
   @override
@@ -60,8 +65,8 @@ class LoginPage extends StatelessWidget {
 
               // username textfield
               MyTextField(
-                controller: usernameController,
-                hintText: 'Username',
+                controller: EmailController,
+                hintText: 'Email',
                 obscureText: false,
               ),
 
@@ -95,7 +100,7 @@ class LoginPage extends StatelessWidget {
               // sign in button
               MyButton(
                 onTap: (){
-                  signUserIn(context);
+                  signUserIn();
                 },
               ),
 
