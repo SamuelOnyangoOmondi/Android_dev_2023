@@ -4,6 +4,7 @@ import 'package:flutter_app/components/my_textfield.dart';
 import 'package:flutter_app/components/squaretile.dart';
 import 'package:flutter_app/data_entry.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_app/services/auth_service.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -197,14 +198,19 @@ class _LoginPageState extends State<LoginPage> {
               // google + apple sign in buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   // google button
-                  SquareTile(imagePath: 'lib/images/google.png'),
+                  SquareTile(
+                      onTap: () => AuthService().signinWithGoogle(),
+                      imagePath: 'lib/images/google.png'
+                  ),
 
                   SizedBox(width: 25),
 
                   // apple button
-                  SquareTile(imagePath: 'lib/images/apple.png')
+                  SquareTile(
+                      onTap: () {},
+                      imagePath: 'lib/images/apple.png')
                 ],
               ),
 
