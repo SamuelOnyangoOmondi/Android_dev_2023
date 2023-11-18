@@ -6,19 +6,58 @@ import 'package:flutter_app/data_entry.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // text editing controllers
   final EmailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   // sign user in method
   void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: EmailController.text,
-        password: passwordController.text
-    );
+
+    // show loading circle
+    //   showDialog(
+    //       context: context,
+    //       builder: (context) {
+    //         return const Center(
+    //           child: CircularProgressIndicator(),
+    //         );
+    //       });
+    // try signin
+      //   Wrong email popup
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: EmailController.text,
+            password: passwordController.text
+        );
+        //   pop the loading circle
+        // Navigator.pop(context);
+      } on FirebaseAuthException catch (e) {
+        // Navigator.pop(context);
+        // Wrong email error
+        if (e.code == 'INVALID_LOGIN_CREDENTIALS'){
+          // show error to user
+          wrongEmailMessage();
+        }
+
+      //   wrong password error
+        if (e.code == 'wrong-password') {
+          // show error to user
+
+          wrongPasswordMessage();
+        }
+      }
+    // pop the circle
+
+    // Navigator.pop(context);
+
     //Add authentication logic here
 
     //Navigate to the DataEntry Page
@@ -31,7 +70,26 @@ class LoginPage extends StatelessWidget {
     //   ),
     // );
   }
-
+  void wrongEmailMessage() {
+    showDialog(context: context,
+        builder: (context) {
+          return const AlertDialog (
+            title: Text('Incorrect email'),
+            content: Text('The provided email is not associated with an account.'),
+          );
+        },
+    );
+  }
+  void wrongPasswordMessage() {
+    showDialog(context: context,
+        builder: (context) {
+          return const AlertDialog (
+            title: Text('Incorrect password'),
+            content: Text('The provided password is not associated with an account.'),
+          );
+        },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
