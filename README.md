@@ -21,6 +21,6 @@ Follow the following tutorial to demonstrate our implementation of firebase and 
 
 **Application Authentication demo**
 
-[![Click to Watch Video](https://drive.google.com/file/d/1kLrqSDafeQgaJNOLTyVRSlSOypzifEaO/view?usp=sharing)
+[![Click to Watch Video](https://pixabay.com/vectors/database-storage-data-storage-152091/)](https://drive.google.com/file/d/1kLrqSDafeQgaJNOLTyVRSlSOypzifEaO/view?usp=sharing)
 
 
