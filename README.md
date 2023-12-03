@@ -23,4 +23,8 @@ Follow the following tutorial to demonstrate our implementation of firebase and 
 
 [![Click to Watch Video](https://pixabay.com/vectors/database-storage-data-storage-152091/)](https://drive.google.com/file/d/1kLrqSDafeQgaJNOLTyVRSlSOypzifEaO/view?usp=sharing)
 
+**Application Authentication demo**
+
+[![Click to Watch Video](https://pixabay.com/vectors/database-storage-data-storage-152091/)](https://drive.google.com/file/d/19Sx0EwzXEHkHGp5L6kFAyv7BJV007YPA/view?usp=sharing)
+
 
