@@ -89,7 +89,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   // welcome back, you've been missed!
                   Text(
-                    'Welcome to our super app!',
+                    'Lets create an account for you!',
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 16,
