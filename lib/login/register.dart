@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/components/my_button.dart';
 import 'package:flutter_app/components/my_textfield.dart';
 import 'package:flutter_app/components/squaretile.dart';
-import 'package:flutter_app/data_entry.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_app/services/auth_service.dart';
 

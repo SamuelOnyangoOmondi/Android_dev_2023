@@ -5,17 +5,17 @@ class AuthService {
 //   google sign in
 
   signinWithGoogle() async {
-  //   begin interactive sign in process
-  final GoogleSignInAccount? guser = await GoogleSignIn().signIn();
+    //   begin interactive sign in process
+    final GoogleSignInAccount? guser = await GoogleSignIn().signIn();
 
-  //   obtain auth details from request
-  final GoogleSignInAuthentication gAuth = await await guser!.authentication;
-  //   create a new credential for user
-  final credential = GoogleAuthProvider.credential(
-    accessToken: gAuth.accessToken,
-    idToken: gAuth.idToken,
-  );
-  //   finally, lets sign in
-  return await FirebaseAuth.instance.signInWithCredential(credential);
+    //   obtain auth details from request
+    final GoogleSignInAuthentication gAuth = await await guser!.authentication;
+    //   create a new credential for user
+    final credential = GoogleAuthProvider.credential(
+      accessToken: gAuth.accessToken,
+      idToken: gAuth.idToken,
+    );
+    //   finally, lets sign in
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
