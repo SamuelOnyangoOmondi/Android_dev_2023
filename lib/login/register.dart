@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/my_button.dart';
 import 'package:flutter_app/components/my_textfield.dart';
@@ -21,48 +22,37 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final passwordController = TextEditingController();
 
+  final confirmpasswordController = TextEditingController();
+
   // sign user up method
   void signUserUp() async {
     // try creating the user
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: EmailController.text,
-          password: passwordController.text
-      );
-      //   pop the loading circle
-      // Navigator.pop(context);
-    } on FirebaseAuthException catch (e) {
-      // Navigator.pop(context);
-      // Wrong email error
-      if (e.code == 'INVALID_LOGIN_CREDENTIALS'){
-        // show error to user
-        wrongEmailMessage();
+      if (passwordController.text == confirmpasswordController.text){
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: EmailController.text,
+            password: passwordController.text,
+        );
+      } else {
+        ShowErrorMessage("passwords do not match!");
       }
-
-      //   wrong password error
-      if (e.code == 'wrong-password') {
-        // show error to user
-
-        wrongPasswordMessage();
-      }
+  } on FirebaseAuthException catch(e){
+      ShowErrorMessage(e.code);
     }
   }
-  void wrongEmailMessage() {
-    showDialog(context: context,
+  // show error message to user
+  void ShowErrorMessage(String message) {
+    showDialog(
+      context: context,
       builder: (context) {
-        return const AlertDialog (
-          title: Text('Incorrect email'),
-          content: Text('The provided email is not associated with an account.'),
-        );
-      },
-    );
-  }
-  void wrongPasswordMessage() {
-    showDialog(context: context,
-      builder: (context) {
-        return const AlertDialog (
-          title: Text('Incorrect password'),
-          content: Text('The provided password is not associated with an account.'),
+        return AlertDialog(
+          backgroundColor: Colors.purple,
+          title: Center(
+            child: Text(
+              message,
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
         );
       },
     );
@@ -118,55 +108,39 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   // confirm password textfield
                   MyTextField(
-                    controller: passwordController,
+                    controller: confirmpasswordController,
                     hintText: 'Confirm Password',
                     obscureText: true,
                   ),
-
-
-                  const SizedBox(height: 10),
-
-                  // forgot password?
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          'Forgot Password?',
-                          style: TextStyle(color: Colors.grey[600]),
-                        ),
-                      ],
-                    ),
-                  ),
-
                   const SizedBox(height: 25),
 
                   // sign in button
                   MyButton(
-                    onTap: signUserUp,),
+                    text: "Sign Up",
+                      onTap: signUserUp,
+                  ),
 
-                  const SizedBox(height: 50),
+                      const SizedBox(height: 50),
 
-                  // or continue with
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
+                      // or continue with
+                      Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Row(
                       children: [
-                        Expanded(
-                          child: Divider(
-                            thickness: 0.5,
-                            color: Colors.grey[400],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text(
-                            'Or continue with',
-                            style: TextStyle(color: Colors.grey[700]),
-                          ),
-                        ),
-                        Expanded(
+                      Expanded(
+                      child: Divider(
+                      thickness: 0.5,
+                      color: Colors.grey[400],
+                      ),
+                      ),
+                      Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                      'Or continue with',
+                      style: TextStyle(color: Colors.grey[700]),
+                      ),
+                      ),
+                      Expanded(
                           child: Divider(
                             thickness: 0.5,
                             color: Colors.grey[400],

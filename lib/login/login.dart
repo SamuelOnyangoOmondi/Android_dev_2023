@@ -21,19 +21,10 @@ class _LoginPageState extends State<LoginPage> {
 
   final passwordController = TextEditingController();
 
+
   // sign user in method
   void signUserIn() async {
 
-    // show loading circle
-    //   showDialog(
-    //       context: context,
-    //       builder: (context) {
-    //         return const Center(
-    //           child: CircularProgressIndicator(),
-    //         );
-    //       });
-    // try signin
-      //   Wrong email popup
       try {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: EmailController.text,
@@ -42,57 +33,27 @@ class _LoginPageState extends State<LoginPage> {
         //   pop the loading circle
         // Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
-        // Navigator.pop(context);
-        // Wrong email error
-        if (e.code == 'INVALID_LOGIN_CREDENTIALS'){
-          // show error to user
-          wrongEmailMessage();
-        }
-
-      //   wrong password error
-        if (e.code == 'wrong-password') {
-          // show error to user
-
-          wrongPasswordMessage();
+        ShowErrorMessage(e.code);
         }
       }
-    // pop the circle
-
-    // Navigator.pop(context);
-
-    //Add authentication logic here
-
-    //Navigate to the DataEntry Page
-
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //       builder: (context) => DataEntryPage(collectionName: 'details'
-    //       ),
-    //   ),
-    // );
-  }
-  void wrongEmailMessage() {
-    showDialog(context: context,
-        builder: (context) {
-          return const AlertDialog (
-            title: Text('Incorrect email'),
-            content: Text('The provided email is not associated with an account.'),
-          );
-        },
-    );
-  }
-  void wrongPasswordMessage() {
-    showDialog(context: context,
-        builder: (context) {
-          return const AlertDialog (
-            title: Text('Incorrect password'),
-            content: Text('The provided password is not associated with an account.'),
-          );
-        },
-    );
-  }
+void ShowErrorMessage(String message) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        backgroundColor: Colors.purple,
+        title: Center(
+          child: Text(
+            message,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    },
+  );
+}
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey[300],
@@ -159,6 +120,7 @@ class _LoginPageState extends State<LoginPage> {
 
               // sign in button
               MyButton(
+                text: "Sign in",
                 onTap: (){
                   signUserIn();
                 },
